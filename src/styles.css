@@ -367,7 +367,7 @@ h2 {
 }
 
 .checklist-screen {
-  padding-bottom: 94px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
 .summary-panel {
@@ -428,34 +428,14 @@ h2 {
   background: var(--color-eggshell);
 }
 
-.task-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: var(--color-stone);
-}
-
 .task-card.status-done {
   background: var(--color-warm-taupe);
   border-color: #ded9d3;
 }
 
-.task-card.status-done::before {
-  background: var(--color-ink);
-}
-
-.task-card.status-checking::before {
-  background: linear-gradient(180deg, var(--color-stone), var(--color-ink), var(--color-stone));
-}
-
 .task-card.status-retry {
   border-color: #ded9d3;
   background: var(--color-eggshell);
-}
-
-.task-card.status-retry::before {
-  background: var(--color-ink);
 }
 
 .task-head {
@@ -624,11 +604,8 @@ ol {
 }
 
 .sticky-action {
-  position: sticky;
-  bottom: 0;
   width: 100%;
-  margin-top: 16px;
-  box-shadow: var(--shadow-subtle);
+  margin-top: 18px;
 }
 
 .complete-mark {
