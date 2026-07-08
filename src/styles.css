@@ -40,6 +40,12 @@ button {
     var(--color-eggshell);
 }
 
+@supports (min-height: 100dvh) {
+  .app-shell {
+    min-height: 100dvh;
+  }
+}
+
 .phone-frame {
   width: min(100%, 430px);
   min-height: min(820px, calc(100vh - 40px));
@@ -279,6 +285,28 @@ h2 {
   overflow: hidden;
 }
 
+.complete-screen {
+  align-content: start;
+  gap: 14px;
+  padding-top: clamp(24px, 7vh, 48px);
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+.complete-screen .headline-block {
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.complete-screen h1 {
+  font-size: clamp(27px, 7vw, 32px);
+  line-height: 1.12;
+}
+
+.complete-screen .headline-block p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .ai-orb {
   position: relative;
   width: 220px;
@@ -360,7 +388,7 @@ h2 {
 
 .metric {
   min-width: 0;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--color-stone);
   border-radius: 18px;
   background: var(--color-eggshell);
@@ -377,7 +405,7 @@ h2 {
   display: block;
   margin-top: 3px;
   color: var(--color-ink);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -500,8 +528,8 @@ ol {
 }
 
 .complete-mark {
-  width: 76px;
-  height: 76px;
+  width: 68px;
+  height: 68px;
   display: grid;
   place-items: center;
   margin: 0 auto;
@@ -511,9 +539,14 @@ ol {
 }
 
 .final-card {
-  padding: 12px;
+  padding: 10px;
   border-radius: 24px;
   background: var(--color-warm-taupe);
+}
+
+.complete-screen .primary-button,
+.complete-screen .secondary-button {
+  min-height: 42px;
 }
 
 .photo-scan-card {
@@ -549,10 +582,18 @@ ol {
   }
 
   .phone-frame {
+    height: 100vh;
     min-height: 100vh;
     max-height: none;
     border-width: 0;
     border-radius: 0;
+  }
+
+  @supports (height: 100dvh) {
+    .phone-frame {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
   }
 
   .camera-card,
@@ -566,6 +607,10 @@ ol {
   .secondary-button {
     padding: 0 10px;
     font-size: 13px;
+  }
+
+  .complete-screen {
+    padding-top: 28px;
   }
 }
 
@@ -595,6 +640,28 @@ ol {
 
   .photo-scan-card {
     width: min(100%, 200px);
+  }
+
+  .complete-screen {
+    gap: 11px;
+    padding-top: 18px;
+  }
+
+  .complete-mark {
+    width: 58px;
+    height: 58px;
+  }
+
+  .complete-screen h1 {
+    font-size: 25px;
+  }
+
+  .complete-screen .headline-block p:not(.eyebrow) {
+    font-size: 12px;
+  }
+
+  .complete-screen .metric {
+    padding: 8px;
   }
 
   .analysis-list span {
