@@ -1,31 +1,30 @@
-# RoomCheck AI Demo
+# RoomCheck
 
-Japanese mobile web demo for a hotel guest checkout assistant. The AI behavior is intentionally mocked for a business contest pitch.
+A mobile web demo for a hotel checkout assistant — built for a business contest pitch. It's in Japanese, runs entirely in the browser, and the AI is mocked (no backend, no real API). Just a clean UI to sell the idea.
 
-## Run
+## Get started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL shown by Vite, usually `http://localhost:5173/`.
+Open whatever URL Vite spits out, probably `http://localhost:5173/`.
 
-## Demo Flow
+## How it works
 
-1. Allow camera access on the first screen.
-2. Tap `撮影してAI確認`.
-3. Wait for the mocked AI scan.
-4. Expand checklist items to show the Japanese hotel manual steps.
-5. Tap `完了写真を撮る`; the camera opens again for that task.
-6. Take the completion photo and watch the mocked AI confirmation screen.
-7. Use `デモ用に一括確認` if you want to move quickly during the pitch.
-8. Tap `完了報告へ進む`, then `完了報告を送信`.
+1. Grant camera access.
+2. Tap `撮影してAI確認` to start.
+3. Wait a sec while the fake AI does its thing.
+4. Tap any checklist item to see the actual hotel cleaning manual steps.
+5. Tap `完了写真を撮る` to snap a completion photo for that task.
+6. It runs another fake AI check to confirm.
+7. If you're presenting and wanna speed things up, hit `デモ用に一括確認`.
+8. Tap `完了報告へ進む`, then `完了報告を送信` to finish.
 
 ## Notes
 
-- No backend or real AI API is used.
-- Camera access uses the browser `getUserMedia` API. It works on `localhost` and secure HTTPS origins.
-- The room image is a generated demo asset at `public/demo-room.png`.
-- UI styling follows `design.md`: warm eggshell canvas, taupe surfaces, black pill actions, hairline borders, and restrained color use.
-# roomcheck
+- No backend. No AI. It's all fake, just enough to make the pitch work.
+- Camera uses `getUserMedia` — works on `localhost` or HTTPS.
+- Demo room photo is at `public/demo-room.png`.
+- Design details in `design.md` if you're curious.
