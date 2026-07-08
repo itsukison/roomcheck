@@ -136,10 +136,11 @@ function App() {
     if (activeCaptureId === "floor" && retryId !== activeCaptureId) {
       setRetryId(activeCaptureId);
       setStatuses((current) => ({ ...current, [activeCaptureId]: "retry" }));
+      setExpanded(activeCaptureId);
     } else {
       setStatuses((current) => ({ ...current, [activeCaptureId]: "done" }));
+      setExpanded("");
     }
-    setExpanded(activeCaptureId);
     setActiveCaptureId(null);
     setConfirmationPhoto(null);
     setScreen("checklist");
@@ -470,8 +471,8 @@ function Metric({ label, value }) {
 function TaskCard({ item, expanded, status, onToggle, onVerify }) {
   const statusLabel = {
     todo: "未完了",
-    checking: "確認中",
-    retry: "要修正",
+    checking: "AI確認中",
+    retry: "再撮影が必要",
     done: "完了",
   }[status];
 
@@ -482,11 +483,14 @@ function TaskCard({ item, expanded, status, onToggle, onVerify }) {
           {status === "done" ? <Check size={16} /> : <Scan size={16} />}
         </div>
         <div>
+          <div className="task-title-row">
+            <h2>{item.title}</h2>
+            <span className="status-label">{statusLabel}</span>
+          </div>
           <p className="task-meta">
             {item.area} ・ AI検出 {item.confidence}% ・ {item.estimate}
           </p>
-          <h2>{item.title}</h2>
-          <p className="quote">「{item.quote}」</p>
+          {(expanded || status === "retry") && <p className="quote">「{item.quote}」</p>}
         </div>
         {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
