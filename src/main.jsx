@@ -594,7 +594,19 @@ function CompleteScreen({ onReset }) {
         <Metric label="所要時間" value="6分42秒" />
       </div>
 
-      <button className="primary-button" onClick={() => setSent(true)}>
+      <div className={`sent-confirmation ${sent ? "is-sent" : ""}`} aria-live="polite">
+        <div className="send-visual" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div>
+          <p>{sent ? "フロントに送信しました" : "送信待機中"}</p>
+          <small>{sent ? "受付番号 RC-2048" : "完了報告はまだ送信されていません"}</small>
+        </div>
+      </div>
+
+      <button className="primary-button" onClick={() => setSent(true)} disabled={sent}>
         {sent ? <Check size={18} /> : <Send size={18} />}
         {sent ? "フロントへ送信済み" : "完了報告を送信"}
       </button>
